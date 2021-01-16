@@ -3,7 +3,7 @@
     <div v-if="$fetchState.pending">
       Loading...
     </div>
-    <div v-else>
+    <div v-else-if="loaded">
       <manga-list title="Reading" :items="data.reading || []" />
       <manga-list title="Popular" :items="data.popular || []" />
     </div>
@@ -49,6 +49,7 @@ export default {
       const isLoaded = this.$store.state.localStorage.status
       if (isLoaded) {
         // Store Adolla URL
+        console.log(this.$store.state.localStorage.url)
         if (!this.$store.state.localStorage.url) {
           let newUrl
           while (!newUrl) {
