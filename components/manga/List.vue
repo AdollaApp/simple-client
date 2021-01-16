@@ -5,7 +5,7 @@
       {{ title }}
     </h3>
     <!-- List entries -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-y-6 gap-x-3">
+    <div class="flex flex-wrap -mx-1 overflow-hidden">
       <manga-card
         v-for="manga in items"
         :key="manga.data.slug"
