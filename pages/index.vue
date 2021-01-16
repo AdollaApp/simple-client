@@ -5,6 +5,7 @@
     </div>
     <div v-else>
       <manga-list title="Reading" :items="data.reading || []" />
+      <manga-list title="Popular" :items="data.popular || []" />
     </div>
   </container>
 </template>
@@ -29,6 +30,13 @@ export default {
 
     // Get Adolla data
     const { data } = await this.$axios(baseUrl)
+
+    for (const key of Object.keys(data.data)) {
+      if (Array.isArray(data.data[key])) {
+        data.data[key] = data.data[key].filter(Boolean).filter(v => v.success)
+      }
+    }
+
     this.data = data.data
   },
   data () {

@@ -1,11 +1,13 @@
 <template>
   <div>
     <!-- List title -->
-    <h3 class="mb-4 text-2xl font-bold">
+    <h2
+      class="mb-4 text-4xl font-bold text-center border-b border-gray-200 pb-2"
+    >
       {{ title }}
-    </h3>
+    </h2>
     <!-- List entries -->
-    <div class="flex flex-wrap -mx-1 overflow-hidden">
+    <div>
       <manga-card
         v-for="manga in items"
         :key="manga.data.slug"
